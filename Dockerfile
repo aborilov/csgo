@@ -8,17 +8,12 @@ RUN mkdir -p /opt/steamcmd &&\
     cd /opt/steamcmd &&\
     curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz
 
-WORKDIR /opt/steamcmd
+VOLUME /opt/steamcmd/csgo
 
-RUN mkdir /opt/steamcmd/csgo &&\
-    cd /opt/steamcmd/ &&\
-    ./steamcmd.sh \
-        +login anonymous \
-        +force_install_dir /opt/steamcmd/csgo \
-        +app_update 740 validate \
-        +quit
+WORKDIR /opt/steamcmd
 
 EXPOSE 27015
 
-WORKDIR /opt/steamcmd/csgo
-ENTRYPOINT ["./srcds_run"]
+COPY docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["docker-entrypoint.sh"]
