@@ -10,9 +10,9 @@ RUN mkdir -p /opt/steamcmd &&\
 
 VOLUME /opt/steamcmd/csgo
 
-WORKDIR /opt/steamcmd
+WORKDIR /opt/steamcmd/csgo
 
-EXPOSE 27015
+EXPOSE 27014 27015
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
