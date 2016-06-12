@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd /opt/steamcmd/
+ping -c 10 www.ru
 if [ ! -f /opt/steamcmd/csgo/finish ]; then
     ./steamcmd.sh +login anonymous +force_install_dir /opt/steamcmd/csgo +app_update 740 validate +quit
     echo "Done" > /opt/steamcmd/csgo/finish
