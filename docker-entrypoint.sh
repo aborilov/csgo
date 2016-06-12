@@ -8,4 +8,5 @@ if [ ! -f /opt/steamcmd/csgo/finish ]; then
     echo "Done" > /opt/steamcmd/csgo/finish
 fi
 cd /opt/steamcmd/csgo
-exec ./srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_bomb
+# exec ./srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_bomb
+./srcds_run -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_bomb
